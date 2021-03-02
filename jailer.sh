@@ -17,6 +17,7 @@ mkdir -p /opt/jail/$NAME/usr/bin
 
 mkdir -p /opt/jail/$NAME/management-state/node/nodes
 mount -t nfs $UNRAID_SERVER:/mnt/user/rancher /opt/jail/$NAME/management-state/node/nodes
+mount -t nfs $UNRAID_SERVER:$UNRAID_NFS_SHARE /opt/jail/$NAME/management-state/node/nodes
 
 mkdir -p /opt/jail/$NAME/var/lib/rancher/management-state/bin
 mkdir -p /opt/jail/$NAME/management-state/bin
