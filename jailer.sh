@@ -16,11 +16,7 @@ mkdir -p /opt/jail/$NAME/usr/bin
 
 
 mkdir -p /opt/jail/$NAME/management-state/node/nodes
-#CUSTOM-------------------------------
-
 mount -t nfs 192.168.7.67:/mnt/user/rancher /opt/jail/$NAME/management-state/node/nodes
-#mount -t nfs $UNRAID_SERVER:$UNRAID_SERVER /opt/jail/$NAME/management-state/node/nodes
-#CUSTOM---------------
 
 mkdir -p /opt/jail/$NAME/var/lib/rancher/management-state/bin
 mkdir -p /opt/jail/$NAME/management-state/bin
