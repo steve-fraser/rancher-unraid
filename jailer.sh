@@ -17,7 +17,7 @@ mkdir -p /opt/jail/$NAME/usr/bin
 
 mkdir -p /opt/jail/$NAME/management-state/node/nodes
 mount -t nfs 192.168.7.67:/mnt/user/rancher /opt/jail/$NAME/management-state/node/nodes
-
+echo "192.168.7.67:/mnt/user/rancher       /opt/jail/$NAME/management-state/node/nodes      nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0"
 mkdir -p /opt/jail/$NAME/var/lib/rancher/management-state/bin
 mkdir -p /opt/jail/$NAME/management-state/bin
 mkdir -p /opt/jail/$NAME/tmp

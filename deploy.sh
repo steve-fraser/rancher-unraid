@@ -17,3 +17,10 @@ apt update \
     && apt-get --assume-yes install nfs-common \
     && curl -L https://raw.githubusercontent.com/steve-fraser/rancher-unraid/main/jailer.sh > /usr/bin/jailer.sh \
     && chmod +x /usr/bin/jailer.sh
+
+
+cd /opt/jail/c-jhl87/management-state/node
+
+mount -t nfs 192.168.7.67:/mnt/user/rancher /opt/jail/$NAME/management-state/node/nodes
+
+echo "192.168.7.67:/mnt/user/rancher       /opt/jail/$NAME/management-state/node/nodes      nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0"
