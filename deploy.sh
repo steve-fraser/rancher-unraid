@@ -24,3 +24,14 @@ cd /opt/jail/c-jhl87/management-state/node
 mount -t nfs 192.168.7.67:/mnt/user/rancher /opt/jail/$NAME/management-state/node/nodes
 
 echo "192.168.7.67:/mnt/user/rancher       /opt/jail/$NAME/management-state/node/nodes      nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0" >> /etc/fstab
+
+
+
+line="mount -t nfs 192.168.7.67:/mnt/user/rancher /opt/jail/$NAME/management-state/node/nodes" && awk -v text="$line" '!/^#/ && !p {print text; p=1} 1' /usr/bin/entrypoint.sh
+
+
+line="mount -t nfs 192.168.7.67:/mnt/user/rancher /opt/jail/test/management-state/node/nodes" && awk -v text="$line" '!/^#/ && !p {print text; p=1} 1' /usr/bin/entrypoint.sh > /usr/bin/entrypoint.sh
+
+
+line="mount -t nfs 192.168.7.67:/mnt/user/rancher /opt/jail/$NAME/management-state/node/nodes" && awk -v text="$line" '!/^#/ && !p {print text; p=1} 1' /usr/bin/entrypoint.sh > /usr/bin/temp-entrypoint.sh
+mv /usr/bin/temp-entrypoint.sh /usr/bin/entrypoint.sh && chmod +x /usr/bin/entrypoint.sh
