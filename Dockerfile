@@ -7,3 +7,5 @@ RUN apt update \
 #COPY THE JAILER FILE THAT MOUNTS THE UNRAID SERVER TO PASS THE DISK AN ISO
 COPY jailer.sh /usr/bin/jailer.sh
 RUN chmod +x /usr/bin/jailer.sh
+COPY kvm-node-driver.yaml /home/kvm-node-driver.yaml
+
