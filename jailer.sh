@@ -9,9 +9,6 @@ if [[ -z "$1" ]]
     exit 1
 fi
 
-k3s kubectl apply --wait=false -f /home/kvm-node-driver.yaml
-
-
 
 # Build the jail directory structure
 mkdir -p /opt/jail/$NAME/dev
@@ -97,5 +94,7 @@ cp -l /bin/rm /opt/jail/$NAME/bin/
 cd /dev
 # tar copy /dev excluding mqueue and shm
 tar cf - --exclude=mqueue --exclude=shm --exclude=pts . | (cd /opt/jail/${NAME}/dev; tar xfp -)
+
+#∂k3s kubectl apply --wait=false -f /home/kvm-node-driver.yaml
 
 touch /opt/jail/$NAME/done
