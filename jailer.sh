@@ -95,6 +95,6 @@ cd /dev
 # tar copy /dev excluding mqueue and shm
 tar cf - --exclude=mqueue --exclude=shm --exclude=pts . | (cd /opt/jail/${NAME}/dev; tar xfp -)
 
-#∂k3s kubectl apply --wait=false -f /home/kvm-node-driver.yaml
-
 touch /opt/jail/$NAME/done
+
+k3s kubectl apply --wait=false -f /home/kvm-node-driver.yaml
