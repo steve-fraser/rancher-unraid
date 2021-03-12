@@ -9,10 +9,7 @@ if [[ -z "$1" ]]
     exit 1
 fi
 
-
-if [ "$NAME" == "driver-jail" ]; then
-    k3s kubectl apply -f /home/kvm-node-driver.yaml
-fi
+k3s kubectl apply --wait=false -f /home/kvm-node-driver.yaml
 
 
 
