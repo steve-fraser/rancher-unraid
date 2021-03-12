@@ -17,8 +17,8 @@ mkdir -p /opt/jail/$NAME/usr/bin
 
 mkdir -p /opt/jail/$NAME/management-state/node/nodes
 
-mount -t nfs 192.168.7.67:/mnt/user/rancher /opt/jail/$NAME/management-state/node/nodes
-line="mount -t nfs 192.168.7.67:/mnt/user/rancher /opt/jail/$NAME/management-state/node/nodes" && awk -v text="$line" '!/^#/ && !p {print text; p=1} 1' /usr/bin/entrypoint.sh > /usr/bin/temp-entrypoint.sh
+mount -t nfs $UNRAID_SERVER:$UNRAID_NFS_SHARE /opt/jail/$NAME/management-state/node/nodes
+line="mount -t nfs $UNRAID_SERVER:$UNRAID_NFS_SHARE /opt/jail/$NAME/management-state/node/nodes" && awk -v text="$line" '!/^#/ && !p {print text; p=1} 1' /usr/bin/entrypoint.sh > /usr/bin/temp-entrypoint.sh
 mv /usr/bin/temp-entrypoint.sh /usr/bin/entrypoint.sh && chmod +x /usr/bin/entrypoint.sh
 
 mkdir -p /opt/jail/$NAME/var/lib/rancher/management-state/bin
