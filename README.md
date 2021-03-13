@@ -1,7 +1,7 @@
 # rancher-unraid
-This container image is build on top of the rancher/rancher project to create an Unraid compatiable kvm rancher server. This container contains the https://github.com/steve-fraser/docker-machine-kvm driver. Please see this driver documentation for further details for configurating rancher templates.
+This container image is build on top of the rancher/rancher project to create an Unraid compatiable kvm rancher server. This container contains the https://github.com/steve-fraser/docker-machine-kvm driver. Please see this driver documentation for further details for configuring rancher templates.
 
-Requirements Current
+Requirements
 - Unraid PUBLIC NFS Share (no auth currently)
 - Libvirtd on the Unraid host to be configured to allow TCP connections (please see the medium post).
 - Docker container deployed directly onto Unraid host
