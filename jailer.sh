@@ -97,4 +97,4 @@ tar cf - --exclude=mqueue --exclude=shm --exclude=pts . | (cd /opt/jail/${NAME}/
 
 touch /opt/jail/$NAME/done
 
-kubectl apply --wait=false -f /home/kvm-node-driver.yaml --wait=false 
+kubectl apply --wait=false -f /home/kvm-node-driver.yaml
