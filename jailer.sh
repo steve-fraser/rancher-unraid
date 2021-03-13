@@ -96,5 +96,5 @@ cd /dev
 tar cf - --exclude=mqueue --exclude=shm --exclude=pts . | (cd /opt/jail/${NAME}/dev; tar xfp -)
 
 touch /opt/jail/$NAME/done
-sleep 300
-kubectl apply --wait=false -f /home/kvm-node-driver.yaml
+sleep 60
+kubectl create -f /home/kvm-node-driver.yaml
