@@ -12,13 +12,13 @@ Requirements Current
 
 Please see the example run command.
 ```
-docker run -d --name='rancher-test' --net='host' \
+docker run -d --name='rancherß' --net='host' \
     --privileged=true \
     -e TZ="America/Los_Angeles" \
     -e HOST_OS="Unraid" \
     -e UNRAID_SERVER="127.0.0.1" \
     -e UNRAID_NFS_SHARE=/mnt/user/rancher \
-    -v '/mnt/disk1/appdata/rancher-test':'/var/lib/rancher':'rw' \
+    -v '/mnt/disk1/appdata/rancher':'/var/lib/rancher':'rw' \
     --restart=unless-stopped \
     stevenfraser/rancher-unraid:latest
 ```
