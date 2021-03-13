@@ -9,6 +9,7 @@ if [[ -z "$1" ]]
     exit 1
 fi
 
+
 # Build the jail directory structure
 mkdir -p /opt/jail/$NAME/dev
 mkdir -p /opt/jail/$NAME/etc/ssl/certs
@@ -17,8 +18,8 @@ mkdir -p /opt/jail/$NAME/usr/bin
 
 mkdir -p /opt/jail/$NAME/management-state/node/nodes
 
-mount -t nfs 192.168.7.67:/mnt/user/rancher /opt/jail/$NAME/management-state/node/nodes
-line="mount -t nfs 192.168.7.67:/mnt/user/rancher /opt/jail/$NAME/management-state/node/nodes" && awk -v text="$line" '!/^#/ && !p {print text; p=1} 1' /usr/bin/entrypoint.sh > /usr/bin/temp-entrypoint.sh
+mount -t nfs $UNRAID_SERVER:$UNRAID_NFS_SHARE /opt/jail/$NAME/management-state/node/nodes
+line="mount -t nfs $UNRAID_SERVER:$UNRAID_NFS_SHARE /opt/jail/$NAME/management-state/node/nodes" && awk -v text="$line" '!/^#/ && !p {print text; p=1} 1' /usr/bin/entrypoint.sh > /usr/bin/temp-entrypoint.sh
 mv /usr/bin/temp-entrypoint.sh /usr/bin/entrypoint.sh && chmod +x /usr/bin/entrypoint.sh
 
 mkdir -p /opt/jail/$NAME/var/lib/rancher/management-state/bin
@@ -95,3 +96,6 @@ cd /dev
 tar cf - --exclude=mqueue --exclude=shm --exclude=pts . | (cd /opt/jail/${NAME}/dev; tar xfp -)
 
 touch /opt/jail/$NAME/done
+if [ "$NAME" == "driver-jail" ]; then
+    kubectl apply -f /home/kvm-node-driver.yaml &
+fi
