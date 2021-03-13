@@ -4,6 +4,9 @@ This container image is build on top of the rancher/rancher project to create an
 Requirements Current
 - Unraid PUBLIC NFS Share (no auth currently)
 - Libvirtd on the Unraid host to be configured to allow TCP connections (please see the medium post).
+- Docker container deployed directly onto Unraid host
+- Host networking
+- Privilged container (rancher requirement)
 
 | Parameter | Function |
 | :----: | --- |
