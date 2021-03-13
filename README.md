@@ -12,7 +12,7 @@ Requirements Current
 
 Please see the example run command.
 ```
-docker run -d --name='rancherß' --net='host' \
+docker run -d --name='rancher' --net='host' \
     --privileged=true \
     -e TZ="America/Los_Angeles" \
     -e HOST_OS="Unraid" \
