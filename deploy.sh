@@ -7,3 +7,6 @@ docker run -d --name='rancher-test' --net='host' \
     -v '/mnt/disk1/appdata/rancher-test':'/var/lib/rancher':'rw' \
     --restart=unless-stopped \
     stevenfraser/rancher-unraid:dev
+
+docker pull stevenfraser/rancher-unraid:dev
+docker container stop rancher-test && docker container rm rancher-test && rm -Rf /mnt/disk1/appdata/rancher-test
