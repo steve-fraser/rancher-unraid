@@ -19,4 +19,4 @@ spec:
   displayName: kvm
   externalId: ""
   uiUrl: ""
-  url: https://github.com/steve-fraser/docker-machine-kvm/releases/download/v0.20.0/docker-machine-driver-kvm-unraid
+  url: https://github.com/steve-fraser/docker-machine-kvm/releases/download/v0.20.2/docker-machine-driver-kvm-unraid
